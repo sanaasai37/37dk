@@ -338,38 +338,27 @@ ul {
 
 /* プロフィール詳細 */
 
-.detail {
-    display: flex;
-    justify-content: center;
-    align-items: end;
+.detail ul{
+    width: 100%;
+    height: 300px;
+    max-width: 800px;
+    margin: 60px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
 }
 
-table {
-    margin-top: 100px;
-    width: 800px;
-    height: 240px;
-}
 
-th,
-td {
+li {
     font-family: "Noto Sans JP";
-    font-size: 20px;
+    font-size: 18px;
     color: #1e2c66;
     padding: 0.5em;
 }
 
-th {
-    width: 10%;
+.thema {
     text-align: center;
-}
-
-td {
-    width: 10%;
-    text-align: center;
-}
-
-tr {
-    height: 30%;
+    font-weight: bold;
 }
 
 /* YouTube */
@@ -485,6 +474,21 @@ footer {
         display: none;
     }
 
+    .menu-btn, .menu img, .logo img {
+        width: 70px;
+    }
+
+    .logo img {
+        top: 10px;
+        left: 10px;
+    }
+
+    .menu-btn {
+        top: 10px;
+        right: 10px;
+    }
+
+
     h1 {
         font-size: 60px;
         margin-top: 30px;
@@ -583,6 +587,7 @@ footer {
 
     .name {
         margin-top: 110px;
+        margin-bottom: 100px;
     }
 
     .name p {
@@ -608,7 +613,7 @@ footer {
     }
 
     .portrait {
-        width: 80%;
+        width: 25vh;
     }
 
     .sana {
@@ -623,10 +628,15 @@ footer {
 
     /* プロフィール詳細 */
 
-    table {
+    .detail ul {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+        justify-content: center;
+        align-items: end;
         width: 90%;
-        font-size: 16px;
+        font-size: 8px;
     }
+
 
     /* YouTube */
 
@@ -661,6 +671,12 @@ footer {
     }
 
     /* SNSリンク */
+
+    .ldk h3 {
+        width: 50vw;
+        text-align: center;
+        margin: 30px auto;
+    }
 
     .link {
         flex-direction: column;
