@@ -609,11 +609,12 @@ footer {
 
     .asai {
         width: 15vh;
-        left: -30%;
+        left: -40%;
     }
 
     .portrait {
-        width: 25vh;
+        width: 30vh;
+        left: -3%;
     }
 
     .sana {
@@ -628,11 +629,15 @@ footer {
 
     /* プロフィール詳細 */
 
+    .detail {
+        margin-right: 30px;
+    }
+
     .detail ul {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
         justify-content: center;
-        align-items: end;
+        align-items: center;
         width: 90%;
         font-size: 8px;
     }
