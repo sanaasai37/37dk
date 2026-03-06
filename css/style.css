@@ -608,17 +608,17 @@ footer {
     }
 
     .asai {
-        width: 15vh;
+        width: 40%;
         left: -40%;
     }
 
     .portrait {
-        width: 30vh;
+        width: 80%;
         left: -3%;
     }
 
     .sana {
-        width: 15vh;
+        width: 40%;
         left: 30%;
     }
 
@@ -634,7 +634,7 @@ footer {
     }
 
     .detail ul {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1.2fr;
         grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
         justify-content: center;
         align-items: center;
