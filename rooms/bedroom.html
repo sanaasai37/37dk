@@ -1,490 +1,101 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
-  <meta charset="UTF-8" />
-  <title>Bedroom - Memories | さなの世界</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <style>
-  :root{
-    --ink:#4a3b3b;
-    --sub:#7a6868;
-    --accent:#d9a8a8;
-    --accent-light:#f8ecec;
-    --bg:#fdfaf8;
-    --card:#fff;
-    --line:#eedede;
-    --radius:18px;
-    --shadow:0 8px 20px rgba(0,0,0,.05);
-    --cellH:64px;
-  }
-
-  body{
-    margin:0;
-    font-family:"Hiragino Sans","Noto Sans JP",system-ui,sans-serif;
-    background:var(--bg);
-    color:var(--ink);
-  }
-
-  .memories-window [hidden]{ display:none !important; }
-
-  /* ヘッダー */
-  header{
-    max-width:980px;
-    margin:24px auto 8px;
-    padding:0 20px;
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-    align-items:flex-start;
-  }
-  .back-btn{
-    text-decoration:none;
-    color:var(--sub);
-    font-weight:600;
-    font-size:15px;
-    border:1px solid var(--line);
-    padding:8px 14px;
-    border-radius:999px;
-    background:var(--card);
-    box-shadow:var(--shadow);
-    transition:.25s ease;
-  }
-  .back-btn:hover{ background:var(--accent-light); transform:translateY(-1px); }
-
-  .page-title{
-    font-size:22px;
-    font-weight:700;
-    margin:4px 0 0;
-  }
-  .page-sub{
-    margin:0;
-    font-size:14px;
-    color:var(--sub);
-  }
-
-  /* List / Calendar 切替 */
-  .toggle{
-    display:flex;
-    gap:8px;
-    justify-content:flex-start;
-    margin-top:8px;
-  }
-  .toggle button{
-    border:1px solid var(--line);
-    background:var(--card);
-    color:var(--sub);
-    padding:8px 14px;
-    border-radius:999px;
-    font-weight:600;
-    cursor:pointer;
-    transition:.25s ease;
-  }
-  .toggle button.active{
-    background:var(--accent);
-    color:#fff;
-    border-color:var(--accent);
-  }
-  .toggle button:hover{ background:var(--accent-light); }
-
-  /* コンテンツ枠 */
-  .memories-window{
-    max-width:980px;
-    margin:8px auto 40px;
-    padding:20px;
-    background:var(--card);
-    border-radius:var(--radius);
-    box-shadow:var(--shadow);
-  }
-
-  /* ===== List ===== */
-  .list-view{
-    display:grid;
-    gap:16px;
-    margin-top:12px;
-  }
-  .memory-card{
-    background:#fff;
-    border:1px solid var(--line);
-    border-radius:16px;
-    padding:16px;
-    display:flex;
-    gap:16px;
-    align-items:flex-start;
-  }
-  .memory-card img{
-    width:140px;
-    height:140px;
-    object-fit:cover;
-    border-radius:12px;
-    background:var(--accent-light);
-    flex-shrink:0;
-  }
-  .memory-info{ flex:1; }
-  .memory-info .title{
-    font-weight:700;
-    margin-bottom:4px;
-    color:var(--ink);
-  }
-  .memory-info .meta{
-    font-size:14px;
-    color:var(--sub);
-    margin-bottom:8px;
-  }
-  .memory-info .desc{
-    font-size:15px;
-    line-height:1.6;
-  }
-
-  /* ===== Calendar ===== */
-  .cal-view[hidden]{ display:none; }
-  .cal-wrap{
-    background:#fff;
-    border:1px solid var(--line);
-    border-radius:16px;
-    padding:8px;
-  }
-  .cal-nav{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:8px 6px 10px;
-  }
-  .cal-nav h3{ margin:0; font-size:16px; color:var(--ink); }
-  .cal-nav button{
-    border:1px solid var(--line);
-    background:#fff;
-    border-radius:12px;
-    padding:8px 10px;
-    cursor:pointer;
-    font-weight:700;
-    color:var(--accent);
-  }
-
-  .cal-grid{
-    display:grid;
-    grid-template-columns:repeat(7,1fr);
-    row-gap:6px;
-    column-gap:0;
-    margin-top:0;
-    padding:6px;
-    grid-auto-rows:var(--cellH);
-  }
-  .cal-dow{
-    height:var(--cellH);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:0;
-    margin:0;
-    font-size:12px;
-    color:var(--sub);
-    text-align:center;
-  }
-
-  .cal-cell{
-    -webkit-appearance:none;
-    appearance:none;
-    position:relative;
-    overflow:hidden;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    height:var(--cellH) !important;
-    background:#fff;
-    border:1px solid #f0dede;
-    border-radius:10px;
-    padding:0 !important;
-    cursor:pointer;
-    box-shadow:none;
-  }
-  .cal-cell .num{
-    display:block;
-    width:auto;
-    height:auto;
-    line-height:1;
-    margin:0;
-    padding:0;
-    background:transparent;
-    border:0;
-    border-radius:0;
-    font-weight:600;
-    color:#5a4e4e;
-    font-size:14px;
-  }
-  .cal-cell.today{ border-color:#f3cfcf; }
-
-  .cal-cell .dot{
-    width:6px;
-    height:6px;
-    border-radius:999px;
-    background:#d39a9a;
-    position:absolute;
-    right:8px;
-    bottom:6px;
-  }
-
-  .cal-cell .thumb{
-    position:absolute;
-    inset:4px;
-    width:calc(100% - 8px);
-    height:calc(100% - 8px);
-    object-fit:cover;
-    border-radius:8px;
-    opacity:.96;
-    pointer-events:none;
-  }
-  .cal-cell.has-photo .num{
-    color:#fff;
-    text-shadow:0 1px 2px rgba(0,0,0,.35);
-  }
-  .cal-cell.has-photo .dot{ display:none; }
-  .cal-cell .badge{
-    position:absolute;
-    right:6px;
-    bottom:6px;
-    font-size:11px;
-    padding:2px 6px;
-    border-radius:999px;
-    background:rgba(0,0,0,.55);
-    color:#fff;
-    pointer-events:none;
-  }
-
-  .cal-grid .cal-cell.selected{
-    background:#f5dede;
-    border-color:#efcaca;
-  }
-  .cal-grid .cal-cell.selected .num{ color:#705656; }
-
-  .cal-drawer{
-    border-top:1px dashed var(--line);
-    margin-top:10px;
-    padding:10px 8px 4px;
-  }
-  .cal-item{
-    border:1px solid var(--line);
-    border-radius:12px;
-    padding:10px;
-    margin-bottom:8px;
-    background:#fff;
-  }
-  .cal-item .title{ font-weight:700; }
-  .cal-item .meta{
-    color:var(--sub);
-    font-size:14px;
-    margin-top:2px;
-  }
-  .cal-item img{
-    width:100%;
-    max-width:300px;
-    border-radius:12px;
-    margin-top:6px;
-  }
-
-  @media (max-width:720px){
-    header{ padding:0 16px; }
-    .memory-card{
-      flex-direction:column;
-      align-items:center;
-      text-align:center;
-    }
-    .memory-card img{
-      width:100%;
-      height:auto;
-    }
-  }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>bedroom | MEMORY</title>
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="bedroom.css">
 </head>
+
 <body>
-  <header>
-    <!-- ここは今の構成に合わせてあとでリンク先変えてOK -->
-    <a href="../floor.html" class="back-btn">← other room</a>
-
-    <h1 class="page-title">Bedroom / Memories</h1>
-    <p class="page-sub">ベッドルームの本棚に、日々の思い出をそっとしまっていく場所。</p>
-
-    <!-- ページ内モード切替 -->
-    <div class="toggle">
-      <button id="btnList" class="active">List</button>
-      <button id="btnCal">Calendar</button>
+  <header id="top">
+    <div class="header-area">
+      <div class="logo-area">
+        <img src="../img/lefttop.png" alt="">
+        <a href="../index.html#top" class="logo">
+          <img src="../img/37dk-logowhite.svg" alt="37dklogo">
+        </a>
+      </div>
+      <nav class="gnav-menu" aria-label="メニュー">
+        <div class="menu-area">
+          <img src="../img/righttop.png" alt="">
+          <button class="menu-btn" type="button">
+            <div class="menu">
+              <img src="../img/menu-btn.svg" alt="">
+            </div>
+            <div class="close">
+              <img src="../img/close-btn.svg" alt="">
+            </div>
+          </button>
+          <ul class="gnav-list" id="gnav-list">
+            <li>
+              <a href="../index.html#ldk" class="room-btn ldk">LDK（SNS）</a>
+            </li>
+            <li>
+              <a href="../index.html#youtube" class="room-btn kids">子ども部屋（さなちゅぶ。）</a>
+            </li>
+            <li>
+              <a href="../index.html#youtube" class="room-btn bath">お風呂場（さなろぐ）</a>
+            </li>
+            <li>
+              <a href="garden.html" class="room-btn garden">庭（SCHEDULE）</a>
+            </li>
+            <li>
+              <a href="bedroom.html" class="room-btn bed">ベッドルーム（MEMORY）</a>
+            </li>
+            <li>
+              <a href="study.html" class="room-btn study">書斎（ART）</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
     </div>
   </header>
 
-  <section class="memories-window" aria-label="思い出">
-    <div id="listView" class="list-view"></div>
+<main>
+  <section class="memory">
+    <h1>Bed Room</h1>
+    <h2>Memory</h2>
 
-    <div id="calView" class="cal-view" hidden>
-      <div class="cal-wrap">
-        <div class="cal-nav">
-          <button id="prevMonth" aria-label="Previous month">‹</button>
-          <h3 id="calTitle">2025年10月</h3>
-          <button id="nextMonth" aria-label="Next month">›</button>
-        </div>
-        <div class="cal-grid" id="calGrid"></div>
-        <div class="cal-drawer" id="calDrawer"></div>
-      </div>
+    <div class="memory-list-wrap">
+      <ul class="memory-list" id="memories-list"></ul>
     </div>
-  </section>
 
-  <!-- データ（思い出配列） -->
-  <script src="memories.js"></script>
-
-  <script>
-  const jpWeek = ["sun.","mon.","tue.","wed.","thu.","fri.","sat."];
-  const toJP = (iso)=>{
-    const d = new Date(iso + "T00:00:00+09:00");
-    return { y:d.getFullYear(), m:d.getMonth()+1, day:d.getDate(), w:jpWeek[d.getDay()] };
-  };
-  const fmtDate = (iso)=>{
-    const d = new Date(iso + "T00:00:00+09:00");
-    const w = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
-    const m = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-    return `${w[d.getDay()]}, ${m[d.getMonth()]} ${d.getDate()}`;
-  };
-  const safe = (s)=> String(s||"").replace(/[&<>"']/g, m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[m]));
-
-  const listView = document.getElementById("listView");
-  function renderList(){
-    listView.innerHTML = "";
-    memories.forEach(mem=>{
-      listView.insertAdjacentHTML("beforeend", `
-        <div class="memory-card">
-          ${mem.image? `<img src="${safe(mem.image)}" alt="">` : ""}
-          <div class="memory-info">
-            <div class="title">${safe(mem.title)}</div>
-            <div class="meta">${fmtDate(mem.date)}</div>
-            ${mem.desc? `<div class="desc">${safe(mem.desc)}</div>` : ""}
-          </div>
-        </div>
-      `);
-    });
-  }
-
-  const calGrid   = document.getElementById("calGrid");
-  const calDrawer = document.getElementById("calDrawer");
-  const calTitle  = document.getElementById("calTitle");
-  let viewYear, viewMonth;
-
-  function renderDOW(){
-    calGrid.innerHTML = "";
-    jpWeek.forEach(d=>{
-      calGrid.insertAdjacentHTML("beforeend", `<div class="cal-dow">${d}</div>`);
-    });
-  }
-
-  function renderMonth(y,m){
-    renderDOW();
-
-    const monthNamesFull = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-    calTitle.innerHTML = `
-      <div class="cal-title-block" style="display:flex;flex-direction:column;align-items:center;line-height:1.1;margin-bottom:14px;">
-        <div class="cal-title-year"  style="font-size:16px;font-weight:600;color:var(--accent);letter-spacing:.04em;">${y}</div>
-        <div class="cal-title-month" style="font-size:36px;font-weight:700;color:var(--accent);letter-spacing:.06em;">${String(m).padStart(2,'0')}</div>
-        <div class="cal-title-name"  style="font-size:15px;font-weight:500;color:var(--sub);letter-spacing:.05em;margin-top:4px;">${monthNamesFull[m-1]}</div>
+    <div class="calendar">
+      <div class="calendar-header">
+        <button id="prev-month" type="button">＜</button>
+        <h3 id="calendar-title"></h3>
+        <button id="next-month" type="button">＞</button>
       </div>
-    `;
 
-    const first = new Date(y, m-1, 1);
-    const start = first.getDay();
-    const last  = new Date(y, m, 0).getDate();
-    const today = new Date();
-    const todayKey = `${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,"0")}-${String(today.getDate()).padStart(2,"0")}`;
+      <table class="calendar-table">
+        <thead>
+          <tr>
+            <th>Sun</th>
+            <th>Mon</th>
+            <th>Tue</th>
+            <th>Wed</th>
+            <th>Thu</th>
+            <th>Fri</th>
+            <th>Sat</th>
+          </tr>
+        </thead>
+        <tbody id="calendar-body"></tbody>
+      </table>
+    </div>
 
-    for(let i=0;i<start;i++){
-      calGrid.insertAdjacentHTML("beforeend", `<div class="cal-cell cal-empty"></div>`);
-    }
+  </section>
+</main>
 
-    for(let d=1; d<=last; d++){
-      const dateKey = `${y}-${String(m).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
 
-      const dayItems  = memories.filter(e => e.date === dateKey);
-      const photoList = dayItems.map(e => Array.isArray(e.photos)? e.photos : (e.photo? [e.photo] : [])).flat();
-      const hasPhoto  = photoList.length > 0;
-      const hasEvent  = dayItems.length > 0;
-
-      calGrid.insertAdjacentHTML("beforeend", `
-        <button class="cal-cell ${hasEvent?'has-event':''} ${hasPhoto?'has-photo':''} ${dateKey===todayKey?'today':''}"
-                data-date="${dateKey}">
-          ${hasPhoto ? `<img src="${photoList[0]}" alt="" class="thumb" loading="lazy">` : ""}
-          <div class="num">${d}</div>
-          ${hasEvent && !hasPhoto ? '<span class="dot"></span>' : ''}
-          ${photoList.length>1 ? `<span class="badge">+${photoList.length-1}</span>` : ""}
-        </button>
-      `);
-    }
-
-    openDrawer(`${y}-${String(m).padStart(2,'0')}-01`, []);
-  }
-
-  function openDrawer(dateKey, dayMems){
-    const w = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
-    const m = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-    const d = new Date(dateKey + "T00:00:00+09:00");
-    const head = `${w[d.getDay()]}, ${m[d.getMonth()]} ${d.getDate()}`;
-
-    calDrawer.innerHTML = `
-      <div class="cal-head" style="font-weight:700; margin-bottom:6px;">${head}</div>
-      ${
-        dayMems.length
-          ? dayMems.map(mem=>`
-              <div class="cal-item">
-                <div class="title">${safe(mem.title)}</div>
-                <div class="meta">${fmtDate(mem.date)}</div>
-                ${mem.image? `<img src="${safe(mem.image)}" alt="">` : ""}
-                ${mem.desc? `<div class="desc">${safe(mem.desc)}</div>` : ""}
-              </div>
-            `).join("")
-          : `<div class="cal-item"><div class="meta">No memories on this day.</div></div>`
-      }
-    `;
-  }
-
-  document.getElementById("prevMonth").addEventListener("click", ()=>{
-    viewMonth--;
-    if(viewMonth<1){ viewMonth=12; viewYear--; }
-    renderMonth(viewYear,viewMonth);
-  });
-  document.getElementById("nextMonth").addEventListener("click", ()=>{
-    viewMonth++;
-    if(viewMonth>12){ viewMonth=1; viewYear++; }
-    renderMonth(viewYear,viewMonth);
-  });
-
-  const btnList = document.getElementById("btnList");
-  const btnCal  = document.getElementById("btnCal");
-  const calView = document.getElementById("calView");
-  function setMode(mode){
-    const isList = mode==="list";
-    document.getElementById("listView").hidden = !isList;
-    calView.hidden = isList;
-    btnList.classList.toggle("active", isList);
-    btnCal.classList.toggle("active", !isList);
-  }
-  btnList.addEventListener("click", ()=> setMode("list"));
-  btnCal .addEventListener("click", ()=> setMode("cal"));
-
-  calGrid.addEventListener("click", (e)=>{
-    const cell = e.target.closest(".cal-cell[data-date]");
-    if(!cell) return;
-    const dateKey = cell.dataset.date;
-    const dayEvents = memories.filter(e => e.date === dateKey);
-
-    const prev = calGrid.querySelector(".cal-cell.selected");
-    if(prev) prev.classList.remove("selected");
-    cell.classList.add("selected");
-
-    openDrawer(dateKey, dayEvents);
-  });
-
-  (function init(){
-    renderList();
-    const now = new Date();
-    viewYear  = now.getFullYear();
-    viewMonth = now.getMonth()+1;
-    renderMonth(viewYear, viewMonth);
-    setMode("list");
-  })();
-  </script>
+  <script src="https://code.jquery.com/jquery-4.0.0.min.js"
+    integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+  <script src="../js/gnav.js"></script>
+  <script src="../js/memories.js"></script>
+  <script src="../js/bedroom.js"></script>
 </body>
+
 </html>

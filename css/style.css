@@ -1,2 +1,676 @@
 @charset "utf-8";
 
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    max-width: 100%;
+    background-color: #fffff7;
+}
+
+
+/* ヘッダー */
+
+.header-area {
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+}
+
+.logo-area img {
+    max-width: 200px;
+    width: 20%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.logo img {
+    max-width: 100px;
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    z-index: 2;
+}
+
+.logo:hover {
+    overflow: hidden;
+    /* はみ出た部分を隠す */
+    width: 60px;
+    /* 必要に応じてサイズ調整 */
+    height: 60px;
+    /* 必要に応じてサイズ調整 */
+}
+
+.logo img {
+    width: 100px;
+    transition: transform 0.3s ease;
+    /* アニメーションの速度 */
+}
+
+.logo:hover img {
+    transform: scale(1.1);
+    /* 1.1倍に拡大 */
+}
+
+
+/* ハンバーガーメニュー */
+
+.menu-area img {
+    max-width: 200px;
+    width: 20%;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.menu-btn {
+    width: 100px;
+    height: 100px;
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.menu:hover {
+    overflow: hidden;
+    /* はみ出た部分を隠す */
+    width: 50px;
+    /* 必要に応じてサイズ調整 */
+    height: 50px;
+    /* 必要に応じてサイズ調整 */
+}
+
+.menu img {
+    width: 100px;
+    transition: transform 0.3s ease;
+    /* アニメーションの速度 */
+}
+
+.menu:hover img {
+    transform: scale(1.1);
+    /* 1.1倍に拡大 */
+}
+
+.logo img:active,
+.menu img:active {
+    transform: scale(0.98);
+}
+
+.close {
+    display: none;
+}
+
+.close img {
+    width: 55px;
+}
+
+.menu-btn.is-active .close {
+    display: flex;
+}
+
+.menu-btn.is-active .menu {
+    display: none;
+}
+
+
+
+.gnav-list {
+    color: #fffff7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background: #00104e;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    display: none;
+    flex-direction: column;
+    gap: 36px;
+}
+
+.gnav-list li a {
+    font-family: "Noto Sans JP";
+    text-decoration: none;
+    color: #fffff7;
+    font-size: 24px;
+}
+
+.gnav-list.is-active {
+    display: flex;
+}
+
+/* 間取り図 */
+h1 {
+    font-family: "Italianno", cursive;
+    font-weight: 400;
+    font-size: 100px;
+    color: #00104e;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.floorplan {
+    position: relative;
+    width: min(800px, 100%);
+    margin: 0 auto 80px;
+}
+
+.floorplan img {
+    width: 100%;
+    height: auto;
+    display: block;
+    pointer-events: none;
+    /* 画像がクリック邪魔しないように */
+}
+
+.hotspot {
+    position: absolute;
+    display: block;
+    z-index: 2;
+    /* デバッグ用 */
+    /* outline: 2px solid rgba(255, 0, 0, .35);
+    background: rgba(255, 0, 0, .08); */
+    border-radius: 10px;
+    /* 丸っぽい当たり判定にしたいなら */
+}
+
+.hs-ldk-a {
+    top: 70.5%;
+    left: 65%;
+    width: 29%;
+    height: 21%;
+}
+
+.hs-ldk-b {
+    top: 42%;
+    left: 50.2%;
+    width: 15.3%;
+    height: 50%;
+}
+
+.hs-kids {
+    top: 8.5%;
+    left: 6%;
+    width: 35%;
+    height: 20%;
+}
+
+.hs-bath {
+    top: 8.5%;
+    left: 50.2%;
+    width: 15.3%;
+    height: 33%;
+}
+
+.hs-garden-a {
+    top: 8.5%;
+    left: 66%;
+    width: 18%;
+    height: 61.5%;
+}
+
+.hs-garden-b {
+    top: 8.5%;
+    left: 84%;
+    width: 9.5%;
+    height: 50%;
+}
+
+.hs-bed {
+    top: 42%;
+    left: 6%;
+    width: 35%;
+    height: 16%;
+}
+
+.hs-study {
+    top: 71%;
+    left: 6%;
+    width: 35%;
+    height: 20%;
+}
+
+#youtube {
+    scroll-margin-top: 300px;
+}
+
+.sp-room-nav {
+    display: none;
+}
+
+.about-site {
+    text-align: center;
+    max-width: 600px;
+    margin: 80px auto;
+    line-height: 3em;
+    font-size: 15px;
+    opacity: 0.8;
+    /* font-weight: bold; */
+}
+
+.about-site p {
+    color: #00104e;
+}
+
+/* プロフィール */
+
+.profile {
+    margin-top: 50px;
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    position: relative;
+}
+
+.profile img {
+    margin: 10px auto;
+    max-width: 500px;
+    width: 50%;
+    position: absolute;
+    left: 0;
+}
+
+/* 名前 */
+
+.name {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #1d307d;
+}
+
+
+.name p {
+    font-family: "Noto Serif JP", serif;
+    font-size: 30px;
+    text-align: center;
+}
+
+.name h2 {
+    font-family: "Noto Serif JP", serif;
+    font-size: 60px;
+    text-align: center;
+}
+
+/* プロフィール写真 */
+
+ul {
+    height: 650px;
+    display: flex;
+    list-style: none;
+}
+
+.asai {
+    position: relative;
+    top: 15%;
+}
+
+.portrait {
+    position: relative;
+    top: 20%;
+    width: 500px;
+}
+
+.portrait img {
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50px;
+}
+
+.sana {
+    position: relative;
+    top: 70%;
+}
+
+/* プロフィール詳細 */
+
+.detail {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+table {
+    margin-top: 100px;
+    width: 800px;
+    height: 240px;
+}
+
+th,
+td {
+    font-family: "Noto Sans JP";
+    font-size: 20px;
+    color: #1e2c66;
+    padding: 0.5em;
+}
+
+th {
+    width: 10%;
+    text-align: center;
+}
+
+td {
+    width: 10%;
+    text-align: center;
+}
+
+tr {
+    height: 30%;
+}
+
+/* YouTube */
+
+.youtube {
+    height: 65vh;
+    display: grid;
+    grid-template-columns: repeat(2, 400px);
+    justify-content: center;
+    gap: 80px;
+    margin-top: 330px;
+    margin-bottom: 80px;
+}
+
+.kidsroom,
+.bath {
+    position: relative;
+    width: 400px;
+}
+
+.kidsroom h3 {
+    position: absolute;
+    width: 300px;
+    top: -150px;
+    left: 10%;
+    transform: translateX(-50%);
+    margin: 0;
+}
+
+
+.bath h3 {
+    position: absolute;
+    width: 300px;
+    top: -150px;
+    left: 90%;
+    transform: translateX(-50%);
+    margin: 0;
+}
+
+.kidsroom #sanacb {
+    width: 400px;
+}
+
+
+.bath #sanalog {
+    width: 400px;
+}
+
+/* リンク集 */
+
+.ldk h3 {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+.link {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 200px;
+    margin-bottom: 100px;
+}
+
+.link img {
+    width: 300px;
+}
+
+footer {
+    text-align: center;
+}
+
+/* ========= hover：大きくなる ========= */
+.kidsroom,
+.bath,
+.link a,
+.link img {
+    transition: transform .2s ease, filter .2s ease;
+    transform-origin: center;
+}
+
+/* 画像に直接リンクしてる場合（imgがaの中） */
+.kidsroom:hover,
+.bath:hover,
+.link img:hover {
+    transform: scale(1.03);
+    filter: drop-shadow(0 10px 18px rgba(0, 0, 0, .15));
+}
+
+/* aタグにhoverが乗る構造ならこっちも効かせる */
+.link a:hover {
+    transform: scale(1.03);
+    filter: drop-shadow(0 10px 18px rgba(0, 0, 0, .15));
+}
+
+.kidsroom:active,
+.bath:active,
+.link a:active,
+.link img:active {
+    transform: scale(0.98);
+}
+
+/* =========================
+スマホ
+========================= */
+@media screen and (max-width: 768px) {
+
+    /* タイトル */
+
+    .logo-area>img,
+    .menu-area>img {
+        display: none;
+    }
+
+    h1 {
+        font-size: 60px;
+        margin-top: 30px;
+    }
+
+    /* 間取り */
+    .floorplan {
+        width: 90%;
+    }
+
+    .hotspot {
+        display: none;
+    }
+
+    .floorplan img {
+        pointer-events: none;
+    }
+
+    .sp-room-nav {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 14px;
+        width: min(420px, 92%);
+        margin: 20px auto 60px;
+    }
+
+    .sp-room-btn {
+        display: block;
+        text-align: center;
+        padding: 16px 14px;
+        border-radius: 50px;
+        border: 1px solid rgba(0, 0, 0, .15);
+        font-size: 16px;
+        font-family: "Noto Sans JP";
+        text-decoration: none;
+        color: #00104e;
+    }
+
+    .sp-room-btn {
+        min-height: 48px;
+    }
+
+    .sp-room-btn.ldk {
+        background-color: #fef5e3;
+    }
+
+    .sp-room-btn.kids {
+        background-color: #fffce6;
+    }
+
+    .sp-room-btn.bath {
+        background-color: #bdddfc43;
+    }
+
+    .sp-room-btn.garden {
+        background-color: #f2fff4;
+    }
+
+    .sp-room-btn.bed {
+        background-color: #fff3fb;
+    }
+
+    .sp-room-btn.study {
+        background-color: #f6effd;
+    }
+
+    #kidsroom,
+    #bath {
+        scroll-margin-top: 140px;
+    }
+
+    .about-site {
+        text-align: center;
+        max-width: 600px;
+        margin: 80px auto;
+        line-height: 1.8;
+        font-size: 15px;
+        opacity: 0.8;
+    }
+
+    /* プロフィール */
+
+    .profile {
+        margin-top: 15vh;
+        margin-bottom: 10vh;
+        height: auto;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile img {
+        width: 50%;
+    }
+
+    /* 名前 */
+
+    .name {
+        margin-top: 110px;
+    }
+
+    .name p {
+        font-size: 18px;
+    }
+
+    .name h2 {
+        font-size: 36px;
+    }
+
+    /* プロフィール写真 */
+
+    ul {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        gap: 20px;
+    }
+
+    .asai {
+        width: 15vh;
+        left: -30%;
+    }
+
+    .portrait {
+        width: 80%;
+    }
+
+    .sana {
+        width: 15vh;
+        left: 30%;
+    }
+
+    .portrait img {
+        width: 100%;
+        height: auto;
+    }
+
+    /* プロフィール詳細 */
+
+    table {
+        width: 90%;
+        font-size: 16px;
+    }
+
+    /* YouTube */
+
+    .youtube {
+        grid-template-columns: 1fr;
+        height: auto;
+        gap: 60px;
+        margin-top: 200px;
+    }
+
+    .kidsroom,
+    .bath {
+        width: 100%;
+    }
+
+    .kidsroom #sanacb,
+    .bath #sanalog {
+        max-width: 420px;
+        width: 60vw;
+        margin: 0 auto 20px;
+        display: block;
+    }
+
+    /* YouTubeタイトル */
+
+    .kidsroom h3,
+    .bath h3 {
+        position: static;
+        transform: none;
+        width: 30vw;
+        margin: 0 auto -3%;
+    }
+
+    /* SNSリンク */
+
+    .link {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        margin-top: 100px;
+    }
+
+    .link img {
+        width: 200px;
+    }
+
+}

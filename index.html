@@ -1,36 +1,188 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3LDK | さなでぃーけー</title>
-    <link rel="stylesheet" href="css/style2.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>37DK | さなでぃーけー</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200..900&/display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-    <header class="3ldk-header">
+	<header id="top">
+		<div class="header-area">
+			<div class="logo-area">
+				<img src="img/lefttop.png" alt="">
+				<a href="#top" class="logo">
+					<img src="img/37dk-logowhite.svg" alt="37dklogo">
+				</a>
+			</div>
+			<nav class="gnav-menu" aria-label="メニュー">
+				<div class="menu-area">
+					<img src="img/righttop.png" alt="">
+					<button class="menu-btn" type="button">
+						<div class="menu">
+							<img src="img/menu-btn.svg" alt="">
+						</div>
+						<div class="close">
+							<img src="img/close-btn.svg" alt="">
+						</div>
+					</button>
+					<ul class="gnav-list" id="gnav-list">
+						<li>
+							<a href="#ldk" class="room-btn ldk">LDK（SNS）</a>
+						</li>
+						<li>
+							<a href="#youtube" class="room-btn kids">子ども部屋（さなちゅぶ。）</a>
+						</li>
+						<li>
+							<a href="#youtube" class="room-btn bath">お風呂場（さなろぐ）</a>
+						</li>
+						<li>
+							<a href="rooms/garden.html" class="room-btn garden">庭（SCHEDULE）</a>
+						</li>
+						<li>
+							<a href="rooms/bedroom.html" class="room-btn bed">ベッドルーム（MEMORY）</a>
+						</li>
+						<li>
+							<a href="rooms/study.html" class="room-btn study">書斎（ART）</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</header>
 
-    </header>
-    <main>
-        <section class="floor-section">
-            <div class="floorplan-image">
-                <a href="rooms/ldk.html"      class="room-btn ldk">LDK（SNS）</a>
-                <a href="rooms/kidsroom.html" class="room-btn kids">子ども部屋（さなちゅぶ。）</a>
-                <a href="rooms/bath.html"     class="room-btn bath">お風呂場（さなろぐ）</a>
-                <a href="rooms/garden.html"   class="room-btn garden">庭（SCHEDULE）</a>
-                <a href="rooms/bedroom.html"  class="room-btn bed">ベッドルーム（MEMORY）</a>
-                <a href="rooms/study.html"    class="room-btn study">書斎（ART）</a>
-            </div>
+	<main>
+		<section class="floor-section">
+			<h1>Floor Plan</h1>
+			<div class="floorplan">
+				<img src="img/floorplan.png" alt="Floor Plan">
 
-        </section>
-        <section class="profile-section">
-            
-        </section>
-        <section class="link-section">
+				<!-- 透明ボタン（当たり判定） -->
+				<a class="hotspot hs-ldk-a" href="#ldk" aria-label="LDKへ"></a>
+				<a class="hotspot hs-ldk-b" href="#ldk" aria-label="LDKへ"></a>
+				<a class="hotspot hs-kids" href="#youtube" aria-label="子ども部屋へ"></a>
+				<a class="hotspot hs-bath" href="#youtube" aria-label="お風呂場へ"></a>
+				<a class="hotspot hs-garden-a" href="rooms/garden.html" aria-label="庭へ"></a>
+				<a class="hotspot hs-garden-b" href="rooms/garden.html" aria-label="庭へ"></a>
+				<a class="hotspot hs-bed" href="rooms/bedroom.html" aria-label="ベッドルームへ"></a>
+				<a class="hotspot hs-study" href="rooms/study.html" aria-label="書斎へ"></a>
+			</div>
+			<section class="about-site">
+				<p>
+					さなの世界が詰まった37DK。
+				</p>
+				<p>
+					時間と共に広がっていく不思議なお家。
+				</p>
+				<p>
+					ぜひ我が家のようにゆっくりと、そして何度でも遊びに来てください。
+				</p>
+			</section>
+			<div class="sp-room-nav">
+				<a class="sp-room-btn ldk" href="#ldk">LDK（SNS）</a>
+				<a class="sp-room-btn kids" href="#kidsroom">子ども部屋（さなちゅぶ。）</a>
+				<a class="sp-room-btn bath" href="#bath">お風呂場（さなろぐ）</a>
+				<a class="sp-room-btn garden" href="rooms/garden.html">庭（SCHEDULE）</a>
+				<a class="sp-room-btn bed" href="rooms/bedroom.html">ベッドルーム（MEMORY）</a>
+				<a class="sp-room-btn study" href="rooms/study.html">書斎（ART）</a>
+			</div>
+		</section>
 
-        </section>        
-    </main>
-    <footer class="3ldk-footer">
-        <small>&copy; 3LDK - sanadk</small>
-    </footer>
+		<section>
+			<div class="profile">
+				<img src="img/profile.png" alt="">
+				<div class="name">
+					<p>あさい　　　さな</p>
+					<h2>麻井　彩凪</h2>
+				</div>
+			</div>
+			<ul class="photo">
+				<li class="asai">
+					<img src="img/Asai.svg" alt="">
+				</li>
+				<li class="portrait">
+					<img src="img/asaisana.jpg" alt="">
+				</li>
+				<li class="sana">
+					<img src="img/Sana.svg" alt="">
+				</li>
+			</ul>
+			<div class="detail">
+				<table>
+					<tr>
+						<th>生年月日</th>
+						<td>1996年8月6日</td>
+						<th>身長</th>
+						<td>166cm</td>
+					</tr>
+					<tr>
+						<th>出身地</th>
+						<td>東京都</td>
+						<th>MBTI</th>
+						<td>INFP</td>
+					</tr>
+					<tr>
+						<th>血液型</th>
+						<td>A型</td>
+						<th>趣味</th>
+						<td>歌うこと <br> 編み物　散歩</td>
+					</tr>
+				</table>
+			</div>
+		</section>
+
+		<section id="youtube">
+			<div class="youtube">
+				<div class="kidsroom" id="kidsroom">
+					<h3>
+						<img src="img/kidsroom.png" alt="">
+					</h3>
+					<a href="https://www.youtube.com/@_sana_asai">
+						<img src="img/sanacb-btn.png" alt="" id="sanacb">
+					</a>
+				</div>
+				<div class="bath" id="bath">
+					<h3>
+						<img src="img/bath.png" alt="">
+					</h3>
+					<a href="https://www.youtube.com/@sanalog3.7">
+						<img src="img/sanalog-btn.png" alt="" id="sanalog">
+					</a>
+				</div>
+			</div>
+		</section>
+		<section id="ldk">
+			<div class="ldk">
+				<h3>
+					<img src="img/ldk.png" alt="">
+				</h3>
+			</div>
+			<div class="link">
+				<a href="https://www.instagram.com/_sana_asai/">
+					<img src="img/insta.png" alt="">
+				</a>
+				<a href="https://x.com/_sana_asai/">
+					<img src="img/x.png" alt="">
+				</a>
+				<a href="https://www.tiktok.com/@_sana_asai/">
+					<img src="img/tiktok.png" alt="">
+				</a>
+			</div>
+		</section>
+	</main>
+	<footer class="37dk-footer">
+		<small>&copy; 37DK - sanadk</small>
+	</footer>
+	<script src="https://code.jquery.com/jquery-4.0.0.min.js"
+		integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+	<script src="js/gnav.js"></script>
 </body>
+
 </html>

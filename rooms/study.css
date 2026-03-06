@@ -1,0 +1,25 @@
+@charset "utf-8";
+
+body {
+    max-width: 100%;
+    background-color: #f6effd;
+}
+
+.study {
+    max-width: 900px;
+    margin: 120px auto;
+    padding: 0 20px 80px;
+    text-align: center;
+}
+
+.study h1,
+.study h2 {
+    color: #67438c;
+}
+
+
+h3 {
+    margin: 0 10vw;
+    color: #714c96;
+    font-size: 25px;
+}

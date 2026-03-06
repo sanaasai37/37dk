@@ -1,0 +1,151 @@
+@charset "utf-8";
+
+body {
+    max-width: 100%;
+    background-color: #f2fff4;
+}
+
+.schedule {
+    max-width: 900px;
+    margin: 120px auto;
+    padding: 0 20px;
+    text-align: center;
+    color: #67996f;
+}
+
+.calendar {
+    margin-top: 40px;
+}
+
+h1,
+h2 {
+    color: #3b7945;
+}
+
+
+.calendar-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.calendar-header h3 {
+    min-width: 180px;
+    margin: 0;
+}
+
+.calendar-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.calendar-table th,
+.calendar-table td {
+    border: 1px solid #ddd;
+    height: 80px;
+    vertical-align: top;
+    padding: 8px;
+    font-size: 14px;
+}
+
+.calendar th {
+    background-color: #deede0;
+    color: #507356;
+}
+
+td {
+    background-color: #f4fcf5;
+    color: #396240;
+}
+
+
+
+.calendar-table td.empty {
+    background: #deede0;
+}
+
+
+.calendar-table td.today {
+    font-weight: bold;
+}
+
+.schedule-list {
+    margin-top: 50px;
+    text-align: left;
+}
+
+.schedule-list ul{
+    display: block;
+    height: auto;
+    padding-left: 20px;
+    margin: 8px 0 16px;
+    list-style: disc;
+}
+
+.schedule-list li{
+    display: block;
+    margin-bottom: 16px;
+}
+
+.schedule-list li ul{
+    display: block;
+    height: auto;
+    margin: 6px 0 0;
+    padding-left: 20px;
+    list-style: disc;
+}
+
+.schedule-list li ul li{
+    margin-bottom: 4px;
+}
+
+h3,
+ul {
+    color: #517457;
+}
+
+.event-text {
+    font-size: 11px;
+    margin-top: 4px;
+}
+
+.today {
+    position: relative;
+    font-weight: lighter;
+}
+
+.today::before {
+    content: "";
+    position: absolute;
+    width: 34px;
+    height: 34px;
+    background-color: #547c5954;
+    border-radius: 50%;
+    top: 23%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.calendar-table td.event {
+    font-weight: bold;
+    background-color: #b4c8b8
+}
+
+
+.schedule-list li div:first-child {
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.schedule-list a {
+    color: #517457;
+    text-decoration: none;
+}
+
+.schedule-list a:hover {
+    text-decoration: underline;
+}
+

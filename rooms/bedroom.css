@@ -1,0 +1,233 @@
+@charset "utf-8";
+
+body {
+    max-width: 100%;
+    background-color: #fff3fb;
+}
+
+.memory {
+    max-width: 900px;
+    margin: 120px auto;
+    padding: 0 20px 80px;
+    text-align: center;
+    color: #99678c;
+}
+
+.memory h1,
+.memory h2 {
+    color: #793b5e;
+}
+
+.memory h3 {
+    color: #745166;
+    margin-bottom: 20px;
+}
+
+/* ボタン */
+.calendar-header button {
+    background: #99678c;
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    padding: 8px 14px;
+    cursor: pointer;
+}
+
+/* カード一覧 */
+.memory-list-wrap {
+    margin-top: 40px;
+}
+
+.memory-list{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.memory-card{
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.memory-card img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    display: block;
+}
+
+.memory-date,
+.memory-title,
+.memory-text {
+    padding: 0 16px;
+}
+
+.memory-date {
+    margin-top: 3px;
+    font-size: 14px;
+}
+
+.memory-title {
+    font-size: 20px;
+    margin: 8px 0;
+}
+
+.memory-text {
+    margin-bottom: 16px;
+}
+
+/* カードリンク */
+.memory-card a {
+    color: #745166;
+    text-decoration: none;
+    display: block;
+    height: 100%;
+}
+
+.memory-card a:hover {
+    text-decoration: underline;
+}
+
+/* カレンダー */
+.calendar {
+    margin-top: 80px;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.calendar-header h3 {
+    min-width: 180px;
+    margin: 0;
+}
+
+.calendar-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.calendar-table th,
+.calendar-table td {
+    border: 1px solid #ddd;
+    height: 80px;
+    vertical-align: top;
+    padding: 8px;
+    font-size: 14px;
+}
+
+.calendar-table th {
+    background-color: #eddeea;
+    color: #735067;
+}
+
+.calendar-table td {
+    background-color: #fcf4fb;
+    color: #62395c;
+}
+
+.calendar-table td.empty {
+    background: #eddee7;
+}
+
+.calendar-table td.today {
+    position: relative;
+    font-weight: normal;
+}
+
+.calendar-table td.today::before {
+    content: "";
+    position: absolute;
+    width: 34px;
+    height: 34px;
+    background-color: #7c546f54;
+    border-radius: 50%;
+    top: 23%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.calendar-table td.event {
+    font-weight: bold;
+    background-color: #c8b4c1;
+}
+
+/* 下のリスト */
+.memory-comingup {
+    margin-top: 60px;
+    text-align: left;
+}
+
+#memory-comingup-list {
+    margin: 16px 0 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+#memory-comingup-list > li {
+    margin-bottom: 16px;
+}
+
+#memory-comingup-list > li > div:first-child {
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+#memory-comingup-list ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+#memory-comingup-list ul li {
+    list-style: disc;
+    margin-bottom: 4px;
+}
+
+#memory-comingup-list a {
+    color: #745166;
+    text-decoration: none;
+}
+
+#memory-comingup-list a:hover {
+    text-decoration: underline;
+}
+
+/* スマホ */
+@media screen and (max-width: 768px) {
+    .memory {
+        margin: 100px auto 60px;
+    }
+
+    .memory-list {
+        grid-template-columns: 1fr;
+    }
+
+    .memory-card img {
+        height: auto;
+        aspect-ratio: 4 / 3;
+    }
+
+    .calendar-table th,
+    .calendar-table td {
+        height: 56px;
+        font-size: 12px;
+        padding: 6px;
+    }
+
+    .calendar-table td.today::before {
+        width: 28px;
+        height: 28px;
+    }
+}
