@@ -3,7 +3,7 @@ const memories = [
         date: "2026-03-07",
         title: "37DK公開",
         image: "../rooms/memory-img/floorplan.png",
-        link: ""
+        link: "http://37dk.jp"
     },
     // {
     //     date: "2026.06.18",

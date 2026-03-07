@@ -349,7 +349,7 @@ ul {
 }
 
 
-li {
+.detail li {
     font-family: "Noto Sans JP";
     font-size: 18px;
     color: #1e2c66;
@@ -630,11 +630,11 @@ footer {
     /* プロフィール詳細 */
 
     .detail {
-        margin-right: 30px;
+        margin-right: 20px;
     }
 
     .detail ul {
-        grid-template-columns: 1fr 1.2fr;
+        grid-template-columns: 1fr 1.5fr;
         grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
         justify-content: center;
         align-items: center;
