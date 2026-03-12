@@ -2,12 +2,14 @@ const memories = [
     {
         date: "2026-03-09",
         title: "37DK",
+        text: "",
         image: "memory-img/img_9023.jpg",
         link: "https://ameblo.jp/sana-asai/entry-12959123362.html"
     },
     {
         date: "2026-03-07",
         title: "37DK公開",
+        text: "",
         image: "memory-img/floorplan.png",
         link: "http://37dk.jp"
     },

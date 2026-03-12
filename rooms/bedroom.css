@@ -230,4 +230,10 @@ body {
         width: 28px;
         height: 28px;
     }
+
+    .memory-card img {
+    margin: 20px 0;
+    }  
+
 }
+

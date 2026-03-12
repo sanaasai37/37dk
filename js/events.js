@@ -1,11 +1,4 @@
 const events = {
-  "2026-03-11": [
-    { text: "21:00　さなろぐ更新", link: "https://www.youtube.com/@sanalog3.7" }
-  ],
-    "2026-03-12": [
-    { text: "21:00　TikTok Live", link: "https://www.tiktok.com/@_sana_asai/" }
-  ],
-
   "2026-03-14": [
     { text: "21:00　さなちゅぶ。更新", link: "https://www.youtube.com/@_sana_asai" }
   ],
