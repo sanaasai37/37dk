@@ -1,5 +1,12 @@
 const memories = [
     {
+        date: "2026-03-22",
+        title: "大料理大会",
+        text: "見てくださった方ありがとうございました",
+        image: "memory-img/img_9340.jpg",
+        link: "https://ameblo.jp/sana-asai/entry-12960562875.html"
+    },
+    {
         date: "2026-03-09",
         title: "37DK",
         text: "",
