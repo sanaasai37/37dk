@@ -3,7 +3,7 @@ const memories = [
         date: "2026-03-24",
         title: "対談",
         text: "",
-        image: "memory-img/no-image.jpeg",
+        image: "memory-img/no-image.jpg",
         link: "https://note.com/_sana_asai/n/n2e6e0f3566d9"
     },
     {
