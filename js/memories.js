@@ -18,7 +18,7 @@ const memories = [
         title: "37DK",
         text: "",
         image: "memory-img/img_9023.jpg",
-        link: "https://ameblo.jp/sana-asai/entry-12959123362.html"
+        link: "https://note.com/_sana_asai/n/nb241ca397a78"
     },
     {
         date: "2026-03-07",
