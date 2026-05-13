@@ -75,7 +75,6 @@ function renderMemories() {
             <img src="${memory.image}" alt="${memory.title}">
             <p class="memory-date">${memory.date}</p>
             <h2 class="memory-title">${memory.title}</h2>
-            <p class="memory-text">${memory.text}</p>
         `;
 
         if (memory.link) {

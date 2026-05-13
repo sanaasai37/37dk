@@ -2,63 +2,54 @@ const memories = [
     {
         date: "2026-05-11",
         title: "サッカー",
-        text: "",
         image: "memory-img/img_0579.jpg",
         link: "https://ameblo.jp/sana-asai/entry-12965868915.html"
     },
     {
         date: "2026-05-07",
         title: "お絵描き",
-        text: "",
         image: "memory-img/img_0497.jpg",
         link: "https://ameblo.jp/sana-asai/entry-12965323746.html"
     },
     {
         date: "2026-05-06",
         title: "こどもの日",
-        text: "",
         image: "memory-img/img_0439.jpg",
         link: "https://ameblo.jp/sana-asai/entry-12965233391.html"
     },
     {
         date: "2026-05-04",
         title: "深夜2時",
-        text: "",
         image: "memory-img/img_0371.jpg",
         link: "https://ameblo.jp/sana-asai/entry-12965026169.html"
     },
     {
         date: "2026-04-01",
         title: "お花見",
-        text: "",
         image: "memory-img/img_9516.jpg",
         link: "https://ameblo.jp/sana-asai/entry-12961655129.html"
     },
     {
         date: "2026-03-24",
         title: "対談",
-        text: "",
         image: "memory-img/no-image.jpg",
         link: "https://note.com/_sana_asai/n/n2e6e0f3566d9"
     },
     {
         date: "2026-03-22",
         title: "大料理大会",
-        text: "見てくださった方ありがとうございました",
         image: "memory-img/img_9340.jpg",
         link: "https://ameblo.jp/sana-asai/entry-12960562875.html"
     },
     {
         date: "2026-03-09",
         title: "37DK",
-        text: "",
         image: "memory-img/img_9023.jpg",
         link: "https://note.com/_sana_asai/n/nb241ca397a78"
     },
     {
         date: "2026-03-07",
         title: "37DK公開",
-        text: "",
         image: "memory-img/floorplan.png",
         link: "http://37dk.jp"
     },
