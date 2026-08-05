@@ -507,7 +507,7 @@ footer p {
 
     footer p {
         margin: 8px auto;
-        font-size:16px;
+        font-size: 16px;
     }
 
 }
@@ -537,8 +537,11 @@ footer p {
 }
 
 .room-inside {
-    height: 580px;
     position: relative;
+}
+
+.room-inside.bath {
+    height: 580px;
 }
 
 .bubble {
@@ -673,3 +676,125 @@ footer p {
     background-color: var(--color-primary);
     padding: 12px 24px;
 }
+
+
+
+
+/* ==========================================================================
+   Syudyページ
+   ========================================================================== */
+.study-inside {
+    position: relative;
+}
+
+.bookshelf {
+    position: relative;
+    width: 320px; /* bookshelf-bg画像の実際の表示幅に合わせる */
+    margin-inline: auto;
+    margin-bottom: 56px;
+}
+
+.bookshelf-bg {
+    width: 100%;
+}
+
+.book {
+    position: absolute;
+}
+
+.book img {
+    width: 120px; /* 本の基本サイズをここで一括管理 */
+    transition: transform 0.2s ease;
+}
+
+.book:hover img {
+    transform: scale(1.1); /* クリックできる本だと分かりやすくするための任意の演出 */
+}
+
+.book_sanathing {
+    top: 36px;
+    left: 30px;
+}
+
+/* .book_bread {
+    top: 40px;
+    left: 90px;
+} */
+
+/* .book_knitting {
+    top: 40px;
+    left: 90px;
+} */
+
+
+/* 本を追加する時は、この形式で .book-3 { top: ...; left: ...; } を足していくだけ */
+
+
+/* ==========================================================================
+   SANATHINGページ
+   ========================================================================== */
+
+.sanathing {
+    width: 240px;
+    margin: 32px auto;
+}
+
+.sanathing-links {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    padding-bottom: 32px;
+    font-size: 12px;
+}
+
+/* ==========================================================================
+   Kidsページ
+   ========================================================================== */
+
+.scrapbook {
+    position: relative;
+    width: 320px; /* 好きな幅に */
+    height: 900px; /* 中身の散らばり具合を見ながら調整 */
+    margin: 0 auto 48px;
+}
+
+.deco {
+    position: absolute;
+}
+
+/* サムネイル内部の重ね合わせ(フレーム+動画)。外側(scrapbook内のどこに置くか)は .link1〜.link3、
+   内側(フレームに対して動画がどうズレているか)は .thumb1〜.thumb3 で個別に調整する */
+.photo-frame {
+    position: relative;
+    width: 100%;
+    z-index: 2;
+}
+
+.youtube_thumb {
+    position: absolute;
+    z-index: 1;
+}
+
+/* フレームに対する動画サムネの位置調整はここで個別に。inset: 上 右 下 左 の順 */
+.thumb1 {
+    inset: 8%;
+}
+
+.thumb2 {
+    inset: 8%;
+}
+
+.thumb3 {
+    inset: 8%;
+}
+
+/* 各アイテムの位置(中心からの距離で指定) */
+.soccer { top: 50%; left: 50%; transform: translate(calc(-50% + 100px), calc(-50% - 300px)); width: 50px; }
+.link1 { top: 50%; left: 50%; transform: translate(calc(-50% - 100px), calc(-50% - 280px)); width: 140px; }
+.paper_airplane { top: 50%; left: 50%; transform: translate(calc(-50% + 50px), calc(-50% - 180px)); width: 80px; }
+.bouquet { top: 50%; left: 50%; transform: translate(calc(-50% - 120px), calc(-50% - 100px)); width: 80px; }
+.link2 { top: 50%; left: 50%; transform: translate(calc(-50% + 80px), calc(-50% - 40px)); width: 150px; }
+.crayon { top: 50%; left: 50%; transform: translate(calc(-50% - 100px), calc(-50% + 60px)); width: 90px; }
+.link3 { top: 50%; left: 50%; transform: translate(calc(-50% + 60px), calc(-50% + 140px)); width: 140px; }
+.space { top: 50%; left: 50%; transform: translate(calc(-50% - 80px), calc(-50% + 220px)); width: 100px; }
+.robot { top: 50%; left: 50%; transform: translate(calc(-50% + 20px), calc(-50% + 300px)); width: 80px; }
